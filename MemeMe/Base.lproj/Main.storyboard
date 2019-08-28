@@ -23,6 +23,9 @@
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLq-4K-t3R">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ez5-fz-Bux"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem systemItem="camera" id="tgD-dk-C0W">
                                         <connections>
@@ -37,11 +40,20 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BUTTON" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B5k-6x-nm3">
-                                <rect key="frame" x="129" y="472" width="62" height="17"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Dp-0P-FIl">
+                                <rect key="frame" x="156" y="107" width="8" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ksB-X5-U8s"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B5k-6x-nm3">
+                                <rect key="frame" x="156" y="472" width="8" height="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="3YO-F8-iBw"/>
                                 </connections>
@@ -55,19 +67,14 @@
                                                 <action selector="shareImage:" destination="BYZ-38-t0r" id="eez-wl-KnJ"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="ZO8-8M-F0Y"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="ZO8-8M-F0Y">
+                                            <connections>
+                                                <action selector="resetButton:" destination="BYZ-38-t0r" id="BCm-Om-rbc"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Dp-0P-FIl">
-                                <rect key="frame" x="144" y="107" width="32" height="17"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ksB-X5-U8s"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -94,6 +101,7 @@
                         <outlet property="cameraButton" destination="tgD-dk-C0W" id="i9v-13-99y"/>
                         <outlet property="imagePickerView" destination="vjR-cQ-nSQ" id="xlP-N4-Nwe"/>
                         <outlet property="navigationBar" destination="BnB-C6-JQT" id="F5u-8Z-6ee"/>
+                        <outlet property="shareButton" destination="65t-ur-wT1" id="pju-ab-0bE"/>
                         <outlet property="topTextField" destination="6Dp-0P-FIl" id="EOx-Qh-EGM"/>
                     </connections>
                 </viewController>

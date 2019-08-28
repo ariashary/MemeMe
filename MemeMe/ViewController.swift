@@ -34,15 +34,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.delegate = self
         bottomTextField.delegate = self
         
-        if imagePickerView.image == nil {
-            shareButton.isEnabled = false
-        }
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        shareButton.isEnabled = imagePickerView.image != nil
         
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
@@ -60,6 +60,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // When clicking Done, hide the keyboard
         textField.resignFirstResponder()
         return true
+    }
+    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Delete the default text when editing
+        if (textField == topTextField && topTextField.text == "TOP") {
+            topTextField.text = ""
+        } else if (textField == bottomTextField && bottomTextField.text == "BOTTOM") {
+            bottomTextField.text = ""
+        }
     }
     
     // MARK:- Pick Image
@@ -106,6 +116,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Mark:- Create the Meme
     
     func save() {
+        print("Saving success")
         _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
         
         dismiss(animated: true, completion: nil)
@@ -160,6 +171,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(activityView, animated: true, completion: nil)
     }
     
+    @IBAction func resetButton(_ sender: UIBarButtonItem) {
+        imagePickerView.image = nil
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        shareButton.isEnabled = false
+    }
     
 }
 
