@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vjR-cQ-nSQ">
+                                <rect key="frame" x="0.0" y="20" width="320" height="504"/>
+                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLq-4K-t3R">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
@@ -34,27 +37,40 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vjR-cQ-nSQ">
-                                <rect key="frame" x="40" y="164" width="240" height="240"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="Glf-eb-D0S"/>
-                                    <constraint firstAttribute="width" constant="240" id="ydy-H1-xZP"/>
-                                </constraints>
-                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Dp-0P-FIl">
+                                <rect key="frame" x="144" y="55" width="32" height="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BUTTON" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B5k-6x-nm3">
+                                <rect key="frame" x="129" y="472" width="62" height="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="PLq-4K-t3R" firstAttribute="top" secondItem="B5k-6x-nm3" secondAttribute="bottom" constant="35" id="58A-l4-dON"/>
                             <constraint firstItem="PLq-4K-t3R" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BqW-5F-jkn"/>
-                            <constraint firstItem="vjR-cQ-nSQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OPu-WZ-8qN"/>
+                            <constraint firstItem="6Dp-0P-FIl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="OvA-KA-9HR"/>
+                            <constraint firstItem="vjR-cQ-nSQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RQS-jX-b7n"/>
                             <constraint firstItem="PLq-4K-t3R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Txu-Um-b0G"/>
-                            <constraint firstItem="vjR-cQ-nSQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="knz-Cj-GJ9"/>
+                            <constraint firstItem="B5k-6x-nm3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UjZ-ZH-eZa"/>
+                            <constraint firstItem="PLq-4K-t3R" firstAttribute="top" secondItem="vjR-cQ-nSQ" secondAttribute="bottom" id="dbL-Ep-g45"/>
+                            <constraint firstItem="6Dp-0P-FIl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e5c-jl-G25"/>
+                            <constraint firstItem="vjR-cQ-nSQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="reU-8l-KGa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vjR-cQ-nSQ" secondAttribute="trailing" id="rnz-op-uiS"/>
                             <constraint firstItem="PLq-4K-t3R" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="s3t-0l-AXo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="B5k-6x-nm3" id="kEW-Tp-fdz"/>
                         <outlet property="cameraButton" destination="tgD-dk-C0W" id="i9v-13-99y"/>
                         <outlet property="imagePickerView" destination="vjR-cQ-nSQ" id="xlP-N4-Nwe"/>
+                        <outlet property="topTextField" destination="6Dp-0P-FIl" id="EOx-Qh-EGM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
