@@ -58,11 +58,11 @@
 			children = (
 				BD217778231653CC00888D5D /* AppDelegate.swift */,
 				BD21777A231653CC00888D5D /* ViewController.swift */,
+				BD21778A23167F1100888D5D /* Meme.swift */,
 				BD21777C231653CC00888D5D /* Main.storyboard */,
 				BD21777F231653CE00888D5D /* Assets.xcassets */,
 				BD217781231653CE00888D5D /* LaunchScreen.storyboard */,
 				BD217784231653CE00888D5D /* Info.plist */,
-				BD21778A23167F1100888D5D /* Meme.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";

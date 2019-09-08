@@ -28,6 +28,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSAttributedString.Key.strokeWidth: -3.6
     ]
     
+    // Mark: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,12 +58,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         unsubscribeFromKeyboardNotifications()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // When clicking Done, hide the keyboard
-        textField.resignFirstResponder()
-        return true
-    }
-    
+    // MARK: Keyboard Action
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Delete the default text when editing
@@ -72,7 +69,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    // MARK:- Pick Image
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // When clicking Done, hide the keyboard
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // MARK: Pick Image
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -85,7 +88,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.dismiss(animated: true, completion: nil)
     }
     
-    // MARK:- Keyboard Notification
+    // MARK: Keyboard Notification
     
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -113,7 +116,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return keyboardSize.cgRectValue.height
     }
     
-    // Mark:- Create the Meme
+    // Mark: Create the Meme
     
     func save() {
         print("Saving success")
@@ -142,7 +145,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
 
-    // MARK:- Actions
+    // MARK: Actions
     
     @IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
         let Imagepicker = UIImagePickerController()
