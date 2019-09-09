@@ -15,32 +15,54 @@ class MemeTableViewController: UITableViewController {
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
+    
+    var rowSelected : Int?
+    
+    // MARK: Lifecycles
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return memes.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! MemeTableViewCell
 
-        // Configure the cell...
-
+        let meme = memes[(indexPath as NSIndexPath).row]
+        
+        cell.memeTitle?.text = meme.topText + " " + meme.bottomText
+        cell.memeTopText?.text = meme.topText
+        cell.memeBottomText?.text = meme.bottomText
+        cell.memeImage?.image = meme.memedImage
+        
         return cell
     }
-    */
-
-    // MARK: Actions
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        rowSelected = (indexPath as NSIndexPath).row
+        
+        performSegue(withIdentifier: "memeTableDetail", sender: indexPath)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "memeTableDetail" {
+            
+            if let vc =  segue.destination as? MemeDetailViewController {
+                vc.rowSelected = rowSelected
+            }
+        }
+    }
+ 
 }
