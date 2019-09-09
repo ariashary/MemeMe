@@ -38,7 +38,7 @@ class MemeTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! MemeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MemeTableViewCell
 
         let meme = memes[(indexPath as NSIndexPath).row]
         
@@ -49,6 +49,8 @@ class MemeTableViewController: UITableViewController {
         
         return cell
     }
+    
+    // MARK: Navigation
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         rowSelected = (indexPath as NSIndexPath).row
